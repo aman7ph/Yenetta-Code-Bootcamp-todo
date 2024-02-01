@@ -9,5 +9,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/todo", require("./routes/todoRoutes"));
+app.use("/api/user", require("./routes/userRoute"));
 
 app.listen(port, () => console.log(`Running on port ${port}`));

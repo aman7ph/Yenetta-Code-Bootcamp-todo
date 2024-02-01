@@ -1,4 +1,5 @@
 const express = require("express");
+const { todoValidetor } = require("../middleware/todoValidetor");
 const router = express.Router();
 const {
   getTodos,
@@ -7,7 +8,7 @@ const {
   deleteTodo,
 } = require("../controller/todoControllers");
 
-router.route("/").get(getTodos).post(createTodo);
+router.route("/").get(getTodos).post(todoValidetor, createTodo);
 router.route("/:id").put(updateTodo).delete(deleteTodo);
 
 module.exports = router;

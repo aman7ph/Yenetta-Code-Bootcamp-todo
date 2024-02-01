@@ -1,4 +1,3 @@
-const Joi = require("joi");
 const todo = require("../model/todModel");
 
 //geting
@@ -9,15 +8,15 @@ const getTodos = async (req, res) => {
 
 //creating
 const createTodo = async (req, res) => {
-  const schema = Joi.object({
-    title: Joi.string().required(),
-    description: Joi.string().required(),
-  });
+  // const schema = Joi.object({
+  //   title: Joi.string().required(),
+  //   description: Joi.string().required(),
+  // });
 
-  const { error, value } = schema.validate(req.body);
-  if (error) {
-    res.status(400).json({ error: error.details.map((err) => err.message) });
-  }
+  // const { error, value } = schema.validate(req.body);
+  // if (error) {
+  //   res.status(400).json({ error: error.details.map((err) => err.message) });
+  // }
 
   const todos = await todo.create({
     title: req.body.title,
